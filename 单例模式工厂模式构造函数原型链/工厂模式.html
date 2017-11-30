@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+/*    var jsPerson1={
+        name:"张三",
+        age:48,
+        writeJs:function(){
+            console.log("my name is "+this.name+" i can write js")
+        }
+    }
+    jsPerson1.writeJs();*/
+    //单例模式虽然解决了分组的作用，但是不能实现批量的生成，属于手工作用模式
+    //“工厂模式”:把实现同一件事情的相同代码放在一个函数中，以后如果在想实现这个功能，不需要重新编写这些代码了，只需要执行当前的函数极客
+    //工厂模式-->"函数的封装"-->“低耦合高内聚”：减少页面中的冗余代码，提高代码的重复利用率
+
+    function createJsPerson(name,age){
+        var obj={
+
+        };
+        obj.name=name;
+        obj.age=age;
+        obj.writeJs=function(){
+            console.log("my name is "+this.name+" i can write js");
+        }
+        return obj;
+    }
+    var p1=createJsPerson("xiao",16);
+    p1.writeJs();
+
+    var p2=createJsPerson("sdf",18);
+    p2.writeJs();
+
+    //JS是一门轻量级的脚本“编程语言”（HTML+CSS属于标记语言）
+    //所有的编程语言都是面向对象开发的->类的继承、封装、多态
+//    继承：子类继承父类中属性和方法
+//    多态：当前方法的多种形态
+//    后台语言中：多态包含重载和重写
+
+/*function sum(num1,num2){
+
+}
+function sum(num1){
+
+}
+sum(1)
+sum(1,2)*/
+//    JS中不存在重载，方法名一样的话，后面会把前面的覆盖掉，最后只保留一个
+//"js中有个一操作类似重载,,但不是重载":我们可以根据传递参数的不一样,实现不同的功能
+
+function sum(num){
+    if(typeof num==="undefined"){
+        return 0
+    }
+    return num
+}
+sum(100);
+sum();
+//重写：子类重写父类的方法
+
+</script>

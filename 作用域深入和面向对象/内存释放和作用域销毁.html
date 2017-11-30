@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    有本事点我啊
+</div>
+</body>
+</html>
+<script>
+    //堆内存
+/*    var obj1={name:"张三"};
+    var obj2=obj;
+    obj1=null;
+    obj2=null;*/
+
+    //栈内存
+    //全局作用域
+    //只有当页面关闭时全局作用域才会销毁
+
+    //私有作用域（只有函数执行会产生私有的作用域）
+   //一般情况下 ，函数执行会形成一个新的私有的作用域，当私有作用域中的代码执行完成后，我们的当前作用域会主动进行释放或销毁
+    //
+
+/*    function fn(){
+        var num=100;
+        return function(){
+
+        }
+    }
+    var f=fn();*/
+
+/*    var oDiv=document.getElementById('div1');
+    ~function(){
+      oDiv.onclick=function(){
+
+      }
+    }()*/
+
+    function fn(){
+        var num=100;
+        return function(){
+
+        }
+    }
+    fn()();
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+var obj={
+    name:"zhuf",age:8
+}//普通格式的对象
+    var jsonObj={
+        "name":"zhuf","age":7
+    }//json格式的对象，把属性名用双引号包起来
+
+//    在window浏览器中，JSON属性，有两个方法：
+//    1）JSON.parse  把json格式的字符串转换为json格式的对象
+//    2)JSON.stringify  把json格式的对象转换为json格式的字符串
+var jsonStr=JSON.stringify(jsonObj);
+    //console.log(jsonObj)
+var str='{"name":"zhuf","age":7}';
+    console.log(JSON.parse(str));
+//    IE6、7下，window下没有json对象，stringify ，parse也不存在了
+//把json格式的字符串转换为json格式的对象
+var str='{"name":"zhuf","age":7}';
+    JSON.parse(str)
+    eval("("+str+")")//使用eval 手动加小括号
+
+//把json格式的对象转换为json格式的字符串
+</script>

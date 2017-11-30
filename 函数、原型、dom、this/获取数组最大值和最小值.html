@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+var ary=[12,34,23,3,123,89,9];
+//    1.首先给我们的数组进行排序（小-大），第一个和最后一个就是最小值和最大值
+/*    ary.sort(function(a,b){
+        return a-b;
+    })
+    var min=ary[0];
+    var max=ary[ary.length-1];
+    console.log(min,max);*/
+//2假设法:
+//和自定义属性一样，都是js中最常用的编程思想
+/*var max=ary[0];
+var min=ary[0];
+for(var i=0;i<ary.length;i++){
+    var cur=ary[i];
+    cur>max?max=cur:null;
+    cur<min?min=cur:null;
+}
+console.log(min,max)*/
+
+
+
+//    3.使用Math中的max/main方法实现
+//console.log(Math.min([12,34,23,3,123,89,9].join()));
+//join()或者toString()转化为字符串
+//eval()把其转化为js表达式执行，--9，只获取到了最后一项的值
+//console.log(Math.min(12,34,23,3,123,89,9));
+
+
+/*console.log(eval("Math.max("+ary.toString()+")"));
+ console.log(eval("Math.min("+ary.toString()+")"));*/
+
+var max=Math.max.apply(null,ary);
+console.log(max);
+
+var min=Math.min.apply(null,ary);
+console.log(min);
+
+//自己的
+/*Array.prototype.myMin=function(){
+ var min=this[0];
+ for(var i=0;i<this.length;i++){
+ if(this[i]<=min){
+ min=this[i]
+ }
+ }
+ return min;
+ }
+ Array.prototype.myMax=function(){
+ var max=this[0];
+ for(var i=0;i<this.length;i++){
+ if(this[i]>=max){
+ max=this[i]
+ }
+ }
+ return max;
+ }
+ console.log(ary.myMax());
+ console.log(ary.myMin())*/
+
+//    括号表达式：
+
+/*    function fn1(){console.log(1)}
+    function fn2(){console.log(this)}
+var obj={name:"sfdsdf",fn:fn2}*/
+   // ;(fn1.fn2)();//2  只有fn2执行了  （x1,x2,x3...）括号表达式，一个括号中出现多项内容，中间用“，
+    // ”隔开，但是我们最后获取到的结果只有最后一项
+//;(fn2,obj.fn)()//执行的是obj.fn() 但是执行的时候里面的this变成window而不是obj
+//;(obj.fn)();//this是obj
+</script>

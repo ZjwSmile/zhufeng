@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
+<script>
+var oLis=document.getElementsByTagName("div");
+ /*   console.log(oLis);//HTMLCollection元素集合类的一个
+    // 实例，他也是一个类数组集合
+
+    oLis=document.getElementsByName("zhu");
+    console.log(oLis)//NodeList节点集合 他也是一个类数组集合*/
+
+//标准
+    var ary=[].slice.call(oLis);
+    console.log(ary)
+//非标准
+for(var i=0;i<oLis.length;i++){
+    ary[ary.length]=oLis[i]
+}
+
+//    在IE6-8中，不支持借用数组的slice实现将元素\节点集合的类数组转化为数组-
+// -(报错)SCRIPT5014: Array.prototype.slice: 'this' 不是 JavaScript 对象
+
+//    但是对于arguments借用数组的方法是不存在任何兼容性问题的
+
+
+
+
+
+
+
+</script>

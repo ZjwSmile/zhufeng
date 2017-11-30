@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var num=12;
+    function fn(){
+        var num=120;
+        return function(){
+            console.log(num)
+        }
+    }
+    var f=fn();
+    f();//120
+
+
+    ~function(){
+      var num=1200;
+        f();//120
+    }()
+</script>

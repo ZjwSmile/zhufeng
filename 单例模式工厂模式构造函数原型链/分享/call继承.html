@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //call继承：把父类私有的属性和方法 克隆一份一模一样的 座位子类私有的属性
+/*    function A(){
+        this.x=100
+    }
+    A.prototype.getX=function(){
+        console.log(this.x)
+    }
+
+    function B(){
+        A.call(this);//A.call(n) 把A执行让A中的this变成了n
+    }
+
+    var n=new B;
+    console.log(n.
+            x)*/
+
+
+    function A(){
+        this.x=100
+    }
+    A.prototype.getX=function(){
+        console.log(this.x)
+    }
+//冒充对象继承：把父类私有的+公有的克隆一份一模一样的 给子类私有的
+    function B(){
+        //this--n
+       var temp=new A;
+        for(var key in temp){
+            this[key]=temp[key]
+        }
+        temp=null
+    }
+
+    var n=new B;
+</script>

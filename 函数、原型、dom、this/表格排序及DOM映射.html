@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="ul1">
+    <li>98</li>
+    <li>96</li>
+    <li>99</li>
+    <li>88</li>
+    <li>90</li>
+</ul>
+</body>
+</html>
+<script src="js/utils.js"></script>
+<script>
+    var oUL=document.getElementById("ul1");
+    var olis=oUL.getElementsByTagName("li");
+//    1.先把元素集合类数组转化为数组
+    var ary=utils.listToArray(olis);
+//    2.给数组进行排序
+    ary.sort(function(a,b){
+        return parseFloat(a.innerHTML)-parseFloat(b.innerHTML)
+    })
+//    3.按照ary中存储的最新顺序依次把对应的li添加到页面当中
+    var frg=document.createDocumentFragment();
+    for(var i=0;i<ary.length;i++){
+        frg.appendChild(ary[i])
+    }
+   oUL.appendChild(frg);
+    frg=null;
+
+
+</script>

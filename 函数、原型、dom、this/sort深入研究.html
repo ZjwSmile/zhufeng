@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+/*    var ary=[12,34,55,23,76,45,7,94];
+    //ary.sort()//这样只能处理10以内的数字
+    ary.sort(function(a,b){
+        return 1;//不管a和b谁大，每一都返回一个恒大于0的数，也就是每一个a和b都交换位置，
+        // 最后结果就是原有数组倒过来了 ---reverse
+    })*/
+//console.log(ary);
+
+/*    ary.sort(function(a,b){
+//        a--每一次执行匿名函数的时候，找到的数组中的当前项
+//        b---当前项的后一项
+        console.log(a,b);
+        //return a-b;//升序 如果a>b ,返回的大于0，a和b交换位置
+        return b-a;//降序 如果b>a，返回的大于0，a和b交换位置
+        //--return的是一个大于0或者<=0的数，大于0让a和b交换位置，<=0原来的位置不动
+    });*/
+//    回调函数：把一个方法A当做参数值传递给另外一个函数B，然后在B执行的过程中，我们随时
+// 根据需求让A方法执行
+/*    function fn(callback){
+        callback();
+    }
+    fn(function(){})*/
+
+ /*   function A(){
+
+    }
+    function B(fn){
+        fn();
+        fn();
+    }
+    B(A)*/
+
+    var ary=[
+{name:"张三",age:78},
+{name:"李四",age:90},
+{ name:"哈哈",age:30},
+{name:"刘静",age:66}
+]
+
+//    二维数组排序，按照年龄由小到大排序
+/*    ary.sort(function(a, b){
+        return parseFloat(a.age)- parseFloat(b.age);
+    })
+    console.log(ary);
+    */
+//由大到小
+/*ary.sort(function(a, b){
+    return (parseFloat(a.age)- parseFloat(b.age))*-1;
+})
+console.log(ary);*/
+
+    //按照姓名排序
+
+    ary.sort(function(a,b){
+        return a.name.localeCompare(b.name);
+    })
+
+console.log(ary);
+
+</script>

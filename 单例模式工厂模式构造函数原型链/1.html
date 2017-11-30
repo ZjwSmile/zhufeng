@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+/*
+    var a=5;
+    Number.prototype.plus=function(num){
+        return this+num
+   }
+    Number.prototype.reduce=function(num){
+        return this-num
+    }
+    console.log(a.plus(10).reduce(3))
+*/
+var a=[12,23,10,8];
+    Array.prototype.mySlice=function(n,m){
+        var arr=[];
+        if(n===undefined&&m===undefined){
+            return this;
+        }else if(n!==undefined&&m===undefined){
+            if(n>=this.length){
+                return this
+            }else if(n>=0&&n<this.length){
+                for(var i=n;i<this.length;i++){
+                    arr[i-n]=this[i];
+                }
+                return arr
+            }
+        }else if(n!==undefined&&m!==undefined){
+            for(var i=n;i<m;i++){
+                arr[i-n]=this[i];
+            }
+            return arr;
+        }
+    }
+
+console.log(a.mySlice(2))
+
+</script>

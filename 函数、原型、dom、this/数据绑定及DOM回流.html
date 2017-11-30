@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        a{
+            /*溢出隐藏*/
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1">
+    <li><span class="bg">1 </span>fgfg111111111111</li>
+    <li><span class="bg">2 </span>gddg222222222222</li>
+    <li><span class="bg">3 </span>gdd33333333333</li>
+</ul>
+</body>
+</html>
+<script src="js/json-bind.js"></script>
+<script>
+var oUl=document.getElementById("ul1");
+var oLis=oUl.getElementsByTagName("li");
+
+for(var i=0;i<oLis.length;i++){
+    oLis[i].onmouseover=function(){
+        this.style.backgroundColor="pink";
+    }
+    oLis[i].onmouseout=function(){
+        this.style.backgroundColor="";
+    }
+}
+//111利用动态创建元素节点和把它追加到页面中的方式实现数据绑定
+//优势：把需要动态绑定的内容一个个的追加到页面当中，对原来的元素没有任何影响
+//弊端：每当创建一个li，我们就添加到页面中，引发一次DOM回流，总共7次，最后引发回流的次数过多，影响性能
+/*    for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        var oLi=document.createElement("li");
+        oLi.innerHTML="<span>"+(i+4)+"</span>"+cur.title;
+        oUl.appendChild(oLi);
+    }*/
+
+// 222   字符拼接方式：首先循环需要绑定的数据，然后把需要动态绑定的标签以字符串的方式拼接到一起，拼接完成后，最后统一的添加到页面中
+//常用的一种绑定数据的方式
+//模板引擎数据绑定：jade kTemplate  angularjs  backbone.js
+//弊端：新拼接的字符串添加到ul1中，原来的滑过效果没有了，
+/*//优点：事先把内容拼接好，最后统一添加到页面中，只引发一次回流
+var str="";
+for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        str+="<li>";
+        str+="<span>"+(i+4)+"</span>";
+        str+=cur.title;
+        str+="</li>";
+    }
+    oUl.innerHTML+=str;*///oUl.innerHTML=oUl.innerHTML(把之前3个li以字符串方式获取到)+str;拼接完成的整体还是字符串，最后
+    // 再把字符串统一的添加到页面中，浏览器还需要把10个字符渲染成为对应的标签
+
+
+//    JS中DOM深入知识
+//    回流 （重排  reflow）：当页面中的html结构发生改变 （增加、删除元素，位置发生改变。。。
+// ），只要结构发生改变，浏览器都要重新的计算一遍最新的OM结构，重新对当前页面进行渲染渲染
+//    重绘：某一个元素的部分样式发生改变（背景颜色），浏览器只需要重新的渲染当前的元素即可
+
+
+//    文档碎片，
+    var frg=document.createDocumentFragment();//创建一个文档碎片，相当于临时创建了一个容器
+    for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        var oLi=document.createElement("li");
+        oLi.innerHTML="<span>"+(i+4)+"</span>"+cur.title;
+        frg.appendChild(oLi);
+    }
+    oUl.appendChild(frg);
+    frg=null;
+
+
+
+
+
+</script>

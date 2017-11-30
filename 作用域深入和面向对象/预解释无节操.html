@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+/*    if(!("num" in window)){
+        var num=12;
+    }
+    console.log(num)//undefined*/
+/*    fn();
+    function fn(){
+        console.log("ok");
+    }*/
+
+    //匿名函数之函数表达式，把函数定义的部分当做一个值复制给我们的变量/元素的某一个事件
+/*
+    fn();
+    var fn=function(){
+        console.log("ok");
+    }
+*/
+
+/*(function(num){})(100);
+~function(num){}(100);
++function(num){}(100);
+    -function(num){}(100);
+    !function(num){}(100);*/
+
+
+/*    function fn(){
+        console.log(num);
+        return function(){
+
+        };
+        var num=100;
+    }
+    fn();*/
+
+fn();//2
+    function fn(){
+        console.log(1)
+    }
+fn();//2
+var fn=10;
+fn()//error
+function fn(){
+    console.log(2)
+}
+    fn()
+</script>
